@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #23242a;
+    background: #030303;
 }
 
 .box {
@@ -22,12 +22,71 @@ body {
     overflow: hidden;
 }
 
+.box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg,transparent,transparent,#00eeff,#00eeff,#00eeff);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
 
+.box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg,transparent,transparent,#00eeff,#00eeff,#00eeff);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+
+.borderLine {
+    position: absolute;
+    top: 0;
+    inset: 0;
+}
+
+.borderLine::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg,transparent,transparent,#27ff44,#03fb24,#03fb24);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -1.5s;
+}
+
+.borderLine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg,transparent,transparent,#03fb24,#03fb24,#03fb24);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -4.5s;
+}
 
 .box form {
     position: absolute;
     inset: 4px;
-    background: #222;
+    background: #000000;
     padding: 50px 40px;
     border-radius: 8px;
     z-index: 2;
@@ -36,7 +95,7 @@ body {
 }
 
 .box form h2 {
-    color: #fff;
+    color: #03fb24;
     font-weight: 500;
     text-align: center;
     letter-spacing: .1em;
@@ -76,7 +135,7 @@ body {
 
 .box form .inputBox input:valid ~ span,
 .box form .inputBox input:focus ~ span {
-    color: #fff;
+    color: #00eeff;
     font-size: .75em;
     transform: translateY(-34px);
 }
@@ -123,12 +182,33 @@ body {
     background: #fff;
     cursor: pointer;
     font-size: .9em;
+    border: 2px solid #fff;
     border-radius: 4px;
     font-weight: 600;
     width: 100px;
     margin-top: 10px;
 }
 
+.box form input[type="submit"]:hover {
+    border: 2px solid #00eeff;
+    background: #00eeff;
+}
+
 .box form input[type="submit"]:active {
     opacity:.8 ;
 }
+
+
+
+/* >>>>>>>>>> 
+add key frames
+<<<<<<<<<<<< */
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
